@@ -72,11 +72,11 @@ const Heading = styled.h1`
 `;
 
 const CategoryContainer = styled.div`
-  margin: 30px auto;
-  width: 100%;
+  margin: 30px;
+  margin-top: 0px;
   padding: 30px;
-  max-width: 1300px; /* Restrict max width */
-  box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+  max-width: 1300px; 
+  box-sizing: border-box; 
 `;
 
 const Title = styled.h2`
@@ -87,17 +87,17 @@ const Title = styled.h2`
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto-fill with min-width */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
   gap: 20px;
-  width: 100%; /* Ensure grid takes up full available width */
-  padding: 0 10px; /* Optional: Add padding for spacing */
+  width: 100%; 
+  padding: 0 10px; 
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Slightly smaller columns */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Even smaller columns */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
   }
 `;
 
@@ -124,9 +124,11 @@ const ProductImage = styled.img`
   max-height: 300px;
   @media screen and (max-width: 800px) {
     max-height: 250px;
+    object-fit: fill;
   }
   @media screen and (max-width: 480px) {
     max-height: 200px;
+    object-fit: fill;
   }
 `;
 
@@ -162,7 +164,7 @@ const ArrowRight = styled.img`
   height: 20px;
   fill: #333;
   margin-left: 5px;
-  cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+  cursor: pointer; 
 
   &:hover {
     fill: #000;

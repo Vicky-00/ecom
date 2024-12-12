@@ -72,8 +72,7 @@ const Heading = styled.h1`
 `;
 
 const CategoryContainer = styled.div`
-  margin: 30px auto;
-  width: 100%;
+  margin: 30px ;
   padding: 30px;
   max-width: 1300px;
   box-sizing: border-box;

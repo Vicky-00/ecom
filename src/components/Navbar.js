@@ -3,19 +3,20 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
-  // State to manage the visibility of the search box on small screens
   const [showSearch, setShowSearch] = useState(false);
-  // State for toggling the navigation menu visibility (hamburger menu)
   const [showNav, setShowNav] = useState(false);
+  const [activeNav, setActiveNav] = useState(''); 
 
-  // Toggle the search box visibility when Searchimg is clicked (for screens below 890px)
   const toggleSearchBox = () => {
     setShowSearch(prevState => !prevState);
   };
 
-  // Toggle the navigation menu visibility for screens below 768px
   const toggleNav = () => {
     setShowNav(prevState => !prevState);
+  };
+
+  const handleNavClick = (path) => {
+    setActiveNav(path);
   };
 
   return (
@@ -23,21 +24,41 @@ export default function Navbar() {
       <Nav>
         <Logo src={require("../assets/icons/Logo.svg").default} alt="No-Img" />
 
-        {/* Conditionally render NavList based on the showNav state */}
+        {/*NavList*/}
         <NavList showNav={showNav}>
-          <NavItem to="/" className="active">
+          <NavItem 
+            to="/" 
+            className={activeNav === '/' ? 'active' : ''}
+            onClick={() => handleNavClick('/')}
+          >
             Shop
           </NavItem>
-          <NavItem to="/men" className="active">
+          <NavItem 
+            to="/men" 
+            className={activeNav === '/men' ? 'active' : ''}
+            onClick={() => handleNavClick('/men')}
+          >
             Men
           </NavItem>
-          <NavItem to="/women" className="active">
+          <NavItem 
+            to="/women" 
+            className={activeNav === '/women' ? 'active' : ''}
+            onClick={() => handleNavClick('/women')}
+          >
             Women
           </NavItem>
-          <NavItem to="/combos" className="active">
+          <NavItem 
+            to="/combos" 
+            className={activeNav === '/combos' ? 'active' : ''}
+            onClick={() => handleNavClick('/combos')}
+          >
             Combos
           </NavItem>
-          <NavItem to="/joggers" className="active">
+          <NavItem 
+            to="/joggers" 
+            className={activeNav === '/joggers' ? 'active' : ''}
+            onClick={() => handleNavClick('/joggers')}
+          >
             Joggers
           </NavItem>
         </NavList>
@@ -63,9 +84,9 @@ export default function Navbar() {
           <Icon src={require("../assets/icons/cart.svg").default} alt="no-img" />
         </IconBox>
 
-        {/* Hamburger menu for small screens */}
+        {/* Hamburger menu*/}
         <HamburgerIcon onClick={toggleNav}>
-          &#9776; {/* This is the hamburger icon */}
+          &#9776; 
         </HamburgerIcon>
       </Nav>
     </div>
@@ -96,7 +117,7 @@ const HamburgerIcon = styled.div`
   cursor: pointer;
 
   @media screen and (max-width: 768px) {
-    display: block; /* Only show this icon on small screens */
+    display: block; 
   }
   @media screen and (max-width: 400px) {
     display: block;
@@ -105,13 +126,12 @@ const HamburgerIcon = styled.div`
 `;
 
 const NavList = styled.ul`
-  display: flex; /* Default to row layout */
+  display: flex; 
   list-style: none;
   gap: 28px;
   z-index: 3;
-  /* Make NavList a column when the menu is toggled */
-  display: ${({ showNav }) => (showNav ? 'flex' : 'none')}; /* Only show when toggled */
-  flex-direction: column; /* Stack the items vertically */
+  display: ${({ showNav }) => (showNav ? 'flex' : 'none')}; 
+  flex-direction: column; 
   position: absolute;
   top: 68px;
   right: 0;
@@ -121,7 +141,7 @@ const NavList = styled.ul`
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   
   @media screen and (min-width: 769px) {
-    display: flex; /* Default display as row on large screens */
+    display: flex; 
     flex-direction: row;
     position: initial;
     background-color: transparent;
@@ -137,7 +157,7 @@ const NavItem = styled(NavLink)`
   color: #7f7d7e;
   text-decoration: none;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 500;
 
   &:hover {
     color: #3c4241;
@@ -213,4 +233,3 @@ const Icon = styled.img`
     padding: 4px;
   }
 `;
-

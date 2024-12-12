@@ -6,7 +6,7 @@ import Data from '../json/Products.json';
 
 const LimeLight = () => {
     const [womenProducts, setWomenProducts] = useState([]);
-    const [likedProducts, setLikedProducts] = useState({}); // Track liked products
+    const [likedProducts, setLikedProducts] = useState({});
     const navigate = useNavigate();
   
     useEffect(() => {
@@ -21,7 +21,7 @@ const LimeLight = () => {
     const handleLike = (productId) => {
       setLikedProducts((prevState) => ({
         ...prevState,
-        [productId]: !prevState[productId], // Toggle like status
+        [productId]: !prevState[productId], 
       }));
     };
   
@@ -37,7 +37,7 @@ const LimeLight = () => {
               {/* Like Button SVG */}
               <LikeButton onClick={() => handleLike(product.id)}>
                 <LikeIcon
-                  liked={likedProducts[product.id] ? true : false} // Pass the liked status to change the color
+                  liked={likedProducts[product.id] ? true : false} 
                 />
               </LikeButton>
   
@@ -45,11 +45,11 @@ const LimeLight = () => {
               <CardDetails>
                 <LeftSide>
                   <ProductName>{product.name}</ProductName>
-                  <BrandName>{product.brand}</BrandName> {/* Displaying the brand name */}
+                  <BrandName>{product.brand}</BrandName> 
                 </LeftSide>
                 <RightSide>
                   <PriceBox>
-                    <ProductPrice>${product.price}</ProductPrice> {/* Displaying price */}
+                    <ProductPrice>${product.price}</ProductPrice> 
                   </PriceBox>
                 </RightSide>
               </CardDetails>
@@ -91,7 +91,7 @@ const Heading = styled.h1`
 `;
 
 const CategoryContainer = styled.div`
-  margin: 50px auto;
+  margin: 50px 30px;
   padding: 30px;
   max-width: 1300px;
 `;

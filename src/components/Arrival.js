@@ -84,6 +84,7 @@ const Top = styled.div`
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-bottom: 10px;
 `
 
 const Span = styled.div`
@@ -157,12 +158,8 @@ const SlickSlider = styled(Slider)`
     color: white;                       
   }
 
-  .slick-prev {
-    top:35% 
-  }
-
   .slick-next {
-    top:35%;
+
     left:100%;
   }
 `;
