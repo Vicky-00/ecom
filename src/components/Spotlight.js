@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import styled from "styled-components";
 
@@ -11,6 +12,8 @@ import bgImg3 from "../assets/images/bg-3.jpg"
 
 export default function Carousel() {
     const slider = useRef(null);
+    const navigate = useNavigate()
+
     const slides = [
         { 
           title: "T-Shirts / Tops", 
@@ -44,6 +47,10 @@ export default function Carousel() {
         arrows : false,
       };
 
+      const handleShop = ()=>{
+          navigate("/women")
+      }
+
   return (
     <CarouselContainer>
       <Slider {...settings} ref={slider}>
@@ -53,7 +60,7 @@ export default function Carousel() {
                 <Heading1>{slide.title}</Heading1>
                 <Heading2>{slide.subtitle}</Heading2>
                 <Paragraph>{slide.content}</Paragraph>
-                <Button>Shop Now</Button>
+                <Button onClick={()=>handleShop()}>Shop Now</Button>
             </ContentBox>
           </Slide>
         ))}

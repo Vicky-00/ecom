@@ -1,10 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 import bgImg1 from "../assets/images/bg-4.jpg";
 import bgImg2 from "../assets/images/bg-5.jpg";
 
+
 export default function Banner() {
+  const navigate = useNavigate()
+
+  const handleShop = ()=>{
+    navigate("/men")
+  }
+
   return (
     <div>
       <BannerSection>
@@ -16,7 +24,7 @@ export default function Banner() {
                 In our journey to improve everyday fashion, euphoria presents
                 EVERYDAY wear range - Comfortable & Affordable fashion 24/7
               </Para>
-              <Button>Shop Now</Button>
+              <Button onClick={()=>handleShop()}>Shop Now</Button>
             </TextBox>
           </BannerLeft>
           <BannerRight>
