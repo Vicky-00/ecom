@@ -16,6 +16,10 @@ const WomenCategory = () => {
     navigate(`/product/${productId}`);
   };
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
+
   return (
     <CategoryContainer>
       <Top>
@@ -159,7 +163,7 @@ const ArrowRight = styled.img`
   height: 20px;
   fill: #333;
   margin-left: 5px;
-  cursor: pointer; /* Add pointer cursor to indicate it's clickable */
+  cursor: pointer; 
 
   &:hover {
     fill: #000;

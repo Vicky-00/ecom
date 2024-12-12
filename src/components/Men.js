@@ -16,6 +16,10 @@ const MenCategory = () => {
     navigate(`/product/${productId}`);
   };
 
+  React.useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, []);
+
   return (
     <CategoryContainer>
       <Top>

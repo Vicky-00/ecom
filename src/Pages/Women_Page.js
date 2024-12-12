@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Data from '../json/Products.json'; 
+import { useNavigate } from 'react-router-dom';
+import Data from '../json/Products.json';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const WomenCategory = () => {
+const MenCategory = () => {
   const [womenProducts, setWomenProducts] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const filteredProducts = Data.filter(product => product.type == 'Women');
+    const filteredProducts = Data.filter(product => product.type === 'Women');
     setWomenProducts(filteredProducts);
   }, []);
+
+  const handleProductClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
 
   return (
     <>
@@ -19,20 +24,24 @@ const WomenCategory = () => {
     <CategoryContainer>
       <Top>
         <Span></Span>
-        <Heading>Categories For Women</Heading> 
-      </Top> 
+        <Heading>Categories For Women</Heading>
+      </Top>
       <ProductGrid>
-        {womenProducts.map((product, index) => (
+        {womenProducts.slice(0, 8).map((product) => (
           <ProductCard key={product.id}>
-            <ProductImage src={require(`../assets/images/${product.main_image}`)} alt="No-Image" />
+            <ProductImage
+              src={require(`../assets/images/${product.main_image}`)}
+              alt="No-Image"
+            />
             <CardDetails>
               <TextBox>
                 <ProductCategory>{product.category}</ProductCategory>
                 <ExploreNowText>Explore Now!</ExploreNowText>
               </TextBox>
-              <ExploreLink to={`/product/${product.id}`}>
-                <ArrowRight src={require('../assets/icons/arrow-right.svg').default}/>
-              </ExploreLink>
+              <ArrowRight
+                src={require('../assets/icons/arrow-right.svg').default}
+                onClick={() => handleProductClick(product.id)}
+              />
             </CardDetails>
           </ProductCard>
         ))}
@@ -44,26 +53,36 @@ const WomenCategory = () => {
 };
 
 const Top = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+`;
 
 const Span = styled.div`
-    background-color: #8A33FD;
-    width: 10px;
-    height: 30px;
-`
+  background-color: #8a33fd;
+  width: 10px;
+  height: 30px;
+`;
 
 const Heading = styled.h1`
-`
+  @media screen and (max-width: 700px) {
+    font-size: 1.7rem;
+  }
+  @media screen and (max-width: 580px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 480px) {
+    font-size: 1.3rem;
+  }
+`;
 
 const CategoryContainer = styled.div`
-  margin: 15px auto;
-  width: 100%;
+  margin: 30px;
+  margin-top: 0px;
   padding: 30px;
-  max-width: 1300px;
+  max-width: 1300px; 
+  box-sizing: border-box; 
 `;
 
 const Title = styled.h2`
@@ -74,23 +93,25 @@ const Title = styled.h2`
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+  gap: 20px;
+  width: 100%; 
+  padding: 0 10px; 
 
   @media (max-width: 1024px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
   }
 
   @media (max-width: 600px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
   }
 `;
 
 const TextBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+`;
 
 const ProductCard = styled.div`
   background-color: #fff;
@@ -107,6 +128,14 @@ const ProductImage = styled.img`
   object-fit: cover;
   border-bottom: 2px solid #ddd;
   max-height: 300px;
+  @media screen and (max-width: 800px) {
+    max-height: 250px;
+    object-fit: fill;
+  }
+  @media screen and (max-width: 480px) {
+    max-height: 200px;
+    object-fit: fill;
+  }
 `;
 
 const CardDetails = styled.div`
@@ -121,21 +150,19 @@ const ProductCategory = styled.h5`
   font-weight: bolder;
   color: #333;
   margin: 2px;
+  @media screen and (max-width: 600px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const ExploreNowText = styled.p`
   font-size: 1rem;
-  color: #7F7F7F;
+  color: #7f7f7f;
   font-weight: normal;
   margin: 2px;
-`;
-
-const ExploreLink = styled(Link)`
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  text-decoration: none;
-  color: #333;
+  @media screen and (max-width: 600px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const ArrowRight = styled.img`
@@ -143,10 +170,15 @@ const ArrowRight = styled.img`
   height: 20px;
   fill: #333;
   margin-left: 5px;
+  cursor: pointer; 
 
   &:hover {
     fill: #000;
   }
+  @media screen and (max-width: 600px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 
-export default WomenCategory;
+export default MenCategory;
