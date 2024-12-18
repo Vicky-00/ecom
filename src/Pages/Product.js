@@ -206,7 +206,7 @@ const ProductDetailsPage = () => {
     <CategoryContainer>
         <TopBox>
           <Span1></Span1>
-          <Heading1>In The Limelight</Heading1> 
+          <Heading1>Similar Products</Heading1> 
         </TopBox> 
         <ProductGrid>
           {similarProducts.slice(0, 4).map((product) => (
