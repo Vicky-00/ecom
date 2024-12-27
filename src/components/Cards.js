@@ -47,8 +47,8 @@ const CardSection = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
-    margin : 0px 20px;
+    gap: 28px;
+    padding: 10px;
     @media screen and (max-width: 785px) {
       display: flex;
       flex-direction: column;
@@ -58,9 +58,9 @@ const CardSection = styled.div`
 
 const CardLeft = styled.div`
     background-image: url(${bgImg1});
-    background-size: 150%; 
+    background-size: 160%; 
     width: 40%;
-    padding: 70px 20px;
+    padding: 20px 15px 50px 30px ;
     border-radius: 15px;
     box-shadow: 6px 0 10px rgba(0, 0, 0, 0.3);
     @media screen and (max-width: 785px) {
@@ -79,7 +79,7 @@ const CardRight = styled.div`
     background-image: url(${bgImg2});
     background-size: 130%; 
     width: 44%;
-    padding: 70px 20px;
+    padding: 20px 15px 50px 30px ;
     border-radius: 15px;
     box-shadow: 6px 0 10px rgba(0, 0, 0, 0.3);
     @media screen and (max-width: 785px) {
@@ -96,6 +96,8 @@ const CardRight = styled.div`
 `
 
 const Price = styled.h5`
+    font-size: 18px;
+    font-weight: 800;
     color: #ffffff;
     @media screen and (max-width: 490px) {
       font-size: 0.8rem;
@@ -106,14 +108,18 @@ const TextBox = styled.div`
 `
 
 const Text = styled.h2`
+    font-size: 34px;
     color: #ffffff;
+    margin: 0;
     @media screen and (max-width: 490px) {
       font-size: 1.2rem;
       font-weight: bold;
     }
 `
 
-const Off = styled.p`
+const Off = styled.h3`
+    font-size: 16px;
+    font-weight: 500;
     color: #ffffff;
     @media screen and (max-width: 490px) {
       font-size: 0.7rem;
@@ -122,7 +128,9 @@ const Off = styled.p`
 
 const Explore = styled(Link)`
     color: #ffffff;
-    font-weight: 500;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 4;
     &:hover{
         color: black;
     }

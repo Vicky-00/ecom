@@ -16,9 +16,9 @@ const Feedback = () => {
     speed: 500,            
     slidesToShow: 3,       
     slidesToScroll: 3,       
-    autoplay: true,  
+    autoplay: false,  
     autoplaySpeed: 3000,   
-    arrows:false,   
+    arrows:true,   
     responsive: [
       {
           breakpoint: 1260,  
@@ -44,6 +44,7 @@ const Feedback = () => {
   };
 
   return (
+    <FeedbackWrapper>
     <FeedbackContainer>
       <Top>
         <Span></Span>
@@ -130,8 +131,11 @@ const Feedback = () => {
 
       </Slider>
     </FeedbackContainer>
+    </FeedbackWrapper>
   );
 };
+
+
 
 
 const Top = styled.div`
@@ -142,21 +146,25 @@ const Top = styled.div`
 
 const Span = styled.div`
     background-color: #8A33FD;
-    width: 10px;
+    width: 6px;
     height: 30px;
+    border-radius: 10px;
 `
 
 const Heading = styled.h1`
+  font-size: 34px;
 `
 
 const DivBox = styled.div`
 `
+const FeedbackWrapper = styled.div`
+  margin: 50px;
+`
 
 const FeedbackContainer = styled.div`
-  margin: 50px;
+
   position: relative;
-  max-width: 1350px;
-  padding: 0 15px;
+  padding: 30px;
   @media screen and (max-width: 390px) {
     margin: 30px;
   }
@@ -169,7 +177,7 @@ const FeedbackCard = styled.div`
   background-color: #ffff;
   position: relative;
   height: auto;
-  margin: 25px 15px 20px 0px;
+  margin: 25px 30px 20px 0px;
   height: 320px;
   justify-content: space-between;
   @media screen and (max-width: 850px) {
@@ -209,14 +217,16 @@ const Star = styled.span`
 
 const UserName = styled.h3`
   margin-top: 70px;
-  font-size: 1.2rem;
+  font-size: 22px;
+  font-weight: 500;
+  color: #3C4242;
   font-weight: bold;
 `;
 
 const FeedbackText = styled.p`
   margin-top: 10px;
   font-size: 1rem;
-  color: #555;
+  color: #807D7E;
   line-height: 1.6;
 `;
 

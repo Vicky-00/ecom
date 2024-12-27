@@ -15,8 +15,8 @@ export default function Banner() {
 
   return (
     <div>
-      <BannerSection>
-        <BannerWrapper>
+      <BannerWrapper>
+        <BannerContainer>
           <BannerLeft>
             <TextBox>
               <Slogan>WE MADE YOUR EVERYDAY FASHION BETTER!</Slogan>
@@ -30,32 +30,27 @@ export default function Banner() {
           <BannerRight>
             <BannerImg src={bgImg2} alt="no-image" />
           </BannerRight>
-        </BannerWrapper>
-      </BannerSection>
+        </BannerContainer>
+      </BannerWrapper>
     </div>
   );
 }
 
-const BannerSection = styled.div`
-  margin: 60px auto;
-  position: relative;
-  padding: 0 60px;
+const BannerWrapper = styled.div`
+  margin: 50px;
+
   @media screen and (max-width: 700px) {
       margin: 40px auto;
-      padding: 0px 50px;
   }
   @media screen and (max-width: 540px) {
       margin: 40px auto;
-      padding: 0px 40px;
   }
 `;
 
-const BannerWrapper = styled.div`
+const BannerContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%; 
   height: 700px;
+  padding: 30px;
   @media screen and (max-width: 700px) {
       height: 500px;
   }
@@ -92,10 +87,12 @@ const BannerImg = styled.img`
   width: 100%;
   height: 100%; 
   object-fit: cover; 
+  border-top-right-radius : 15px;
+  border-bottom-right-radius : 15px;
 `;
 
 const TextBox = styled.div`
-  width: 60%;
+  width: 80%;
   @media screen and (max-width: 1160px) {
       width: 70%;
   }
@@ -107,7 +104,8 @@ const TextBox = styled.div`
   }
 `;
 
-const Slogan = styled.h2`
+const Slogan = styled.h1`
+  font-size: 34px;
   color: #ffffff;
   @media screen and (max-width: 940px) {
       font-size: 1.3rem;
@@ -126,7 +124,8 @@ const Slogan = styled.h2`
   }
 `;
 
-const Para = styled.p`
+const Para = styled.h4`
+  font-size: 20px;
   color: #ffffff;
   font-weight: 300;
   @media screen and (max-width: 940px) {
@@ -144,11 +143,13 @@ const Para = styled.p`
 `;
 
 const Button = styled.button`
-  padding: 8px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px 44px;
   border: 1px solid #fff;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color: #fff;
-  margin-top: 15px;
+  margin-top: 20px;
   cursor: pointer;
 
   &:hover {

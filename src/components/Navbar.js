@@ -21,6 +21,7 @@ export default function Navbar() {
 
   return (
     <div>
+      <Wrapper>
       <Nav>
         <Logo src={require("../assets/icons/Logo.svg").default} alt="No-Img" />
 
@@ -89,23 +90,28 @@ export default function Navbar() {
           &#9776; 
         </HamburgerIcon>
       </Nav>
+      </Wrapper>
     </div>
   );
 }
 
+const Wrapper = styled.div`
+  margin: 0 auto;
+`
+
 const Nav = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px 40px;
+  justify-content: space-evenly;
+  padding: 3px 40px;
   @media screen and (max-width: 480px) {
     padding: 20px 20px;
   }
 `;
 
 const Logo = styled.img`
+  display: block;
   @media screen and (max-width: 400px) {
-    display: block;
     width: 70px;
     height: auto;
   }
@@ -136,7 +142,6 @@ const NavList = styled.ul`
   top: 68px;
   right: 0;
   background-color: #fff;
-  width: 200px;
   padding: 20px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   
@@ -156,8 +161,9 @@ const NavList = styled.ul`
 const NavItem = styled(NavLink)`
   color: #7f7d7e;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 500;
+
 
   &:hover {
     color: #3c4241;
@@ -177,13 +183,15 @@ const Box = styled.div`
   padding: 8px;
   border-radius: 5px;
   background-color: #f5f5f5;
+  width: 250px;
   @media screen and (max-width: 410px) {
     padding: 4px;
   }
 `;
 
 const Searchimg = styled.img`
-  cursor: pointer;
+  padding: 0px 5px;
+  /* cursor: pointer; */
 `;
 
 const SearchBox = styled.input`
@@ -222,13 +230,14 @@ const SearchBox = styled.input`
 
 const IconBox = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 12px;
 `;
 
 const Icon = styled.img`
   background-color: #f5f5f5;
-  padding: 8px;
+  padding: 13px;
   border-radius: 5px;
+  cursor: pointer;
   @media screen and (max-width: 400px) {
     padding: 4px;
   }

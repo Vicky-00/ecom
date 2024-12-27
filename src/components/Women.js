@@ -21,13 +21,14 @@ const WomenCategory = () => {
   }, []);
 
   return (
+    <CategoryWrapper>
     <CategoryContainer>
       <Top>
         <Span></Span>
         <Heading>Categories For Women</Heading> 
       </Top> 
       <ProductGrid>
-        {womenProducts.slice(0, 4).map((product) => (
+        {womenProducts.slice(1, 5).map((product) => (
           <ProductCard key={product.id}>
             <ProductImage 
               src={require(`../assets/images/${product.main_image}`)} 
@@ -47,6 +48,7 @@ const WomenCategory = () => {
         ))}
       </ProductGrid>
     </CategoryContainer>
+    </CategoryWrapper>
   );
 };
 
@@ -58,12 +60,14 @@ const Top = styled.div`
 `;
 
 const Span = styled.div`
-  background-color: #8A33FD;
-  width: 10px;
-  height: 30px;
+    background-color: #8A33FD;
+    width: 6px;
+    height: 30px;
+    border-radius: 10px;
 `;
 
 const Heading = styled.h1`
+  font-size: 34px;
   @media screen and (max-width: 700px) {
     font-size: 1.7rem;
   }
@@ -75,10 +79,12 @@ const Heading = styled.h1`
   }
 `;
 
+const CategoryWrapper = styled.div`
+  margin: 50px;
+`
+
 const CategoryContainer = styled.div`
-  margin: 30px ;
   padding: 30px;
-  max-width: 1300px;
   box-sizing: border-box;
 `;
 
@@ -91,7 +97,7 @@ const Title = styled.h2`
 const ProductGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 50px;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
@@ -111,7 +117,6 @@ const TextBox = styled.div`
 const ProductCard = styled.div`
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   text-align: center;
   display: flex;
@@ -122,7 +127,6 @@ const ProductImage = styled.img`
   width: 100%;
   object-fit: cover;
   border-bottom: 2px solid #ddd;
-  max-height: 300px;
   @media screen and (max-width: 800px) {
     max-height: 250px;
   }
@@ -132,7 +136,7 @@ const ProductImage = styled.img`
 `;
 
 const CardDetails = styled.div`
-  padding: 10px;
+  padding: 10px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;

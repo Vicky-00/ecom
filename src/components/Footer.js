@@ -7,6 +7,7 @@ export default function Footer() {
   return (
     <div>
       <FooterWrapper>
+      <FooterContainer>
         <FooterTop>
             <ContactInfo>
                 <Title>Need Help</Title>
@@ -78,6 +79,7 @@ export default function Footer() {
         </Category>
         <LineTag></LineTag>
         <Para>Copyright © 2023 Euphoria Folks Pvt Ltd. All rights reserved.</Para>
+        </FooterContainer>
       </FooterWrapper>
     </div>
   )
@@ -85,6 +87,10 @@ export default function Footer() {
 
 
 const FooterWrapper = styled.div`
+    margin: 0 auto;
+`
+
+const FooterContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -101,8 +107,7 @@ const FooterWrapper = styled.div`
 const FooterTop = styled.div`
     display: flex;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 70px;
+    justify-content: space-around;
     padding: 0px 40px;
     @media screen and (max-width: 980px) {
       padding: 0px;
@@ -123,6 +128,7 @@ const ContactInfo = styled.div`
 `
 
 const Title = styled.h4`
+    font-size: 28px;
     color: #f5f5f5;
     margin-bottom: 22px;
     @media screen and (max-width: 845px) {
@@ -135,6 +141,8 @@ const Title = styled.h4`
 
 const ContactList = styled.ul`
     list-style: none;
+    font-size: 18px;
+    font-weight: 500;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -158,6 +166,8 @@ const CompanyInfo = styled.div`
 
 const CompanyList = styled.ul`
     list-style: none;
+    font-size: 18px;
+    font-weight: 500;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -180,6 +190,8 @@ const MoreInfo = styled.div`
 
 const MoreList = styled.ul`
     list-style: none;
+    font-size: 18px;
+    font-weight: 500;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -200,8 +212,11 @@ const LocationInfo = styled.div`
     
 `
 
+
 const LocationList = styled.ul`
     list-style: none;
+    font-size: 18px;
+    font-weight: 500;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -221,7 +236,7 @@ const Clickable4 = styled(Link)`
 const FooterBottom = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 10px 0px 15px 0px;
+    margin: 10px 0px 30px 30px;
     padding: 0px 40px;
     align-items: center;
     @media screen and (max-width: 845px) {
@@ -234,6 +249,7 @@ const FooterBottom = styled.div`
 
 const LogoList = styled.div`
     display: flex;
+    flex: 1;
     padding-top: 50px;
     gap: 15px;
     @media screen and (max-width: 845px) {
@@ -253,10 +269,12 @@ const Logo = styled.img`
 
 const Downloads= styled.div`
     display: flex;
+    flex: 0.5;
     flex-direction: column;
     align-items: flex-start;
 `
 const Text = styled.h4`
+    font-size: 28px;
     text-align: right;
     color: #f5f5f5;
 
@@ -288,14 +306,16 @@ const Category = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0px 40px;
+    margin: 0rem 4rem 0rem 5rem;
     @media screen and (max-width: 470px) {
         padding: 0px 10px;
     }
 `
 
 const Popular = styled.h4`
+    font-size: 28px;
     color: #f5f5f5;
+    margin: 15px 0px;
     @media screen and (max-width: 768px) {
       margin: 8px 0px;
     }
@@ -304,8 +324,12 @@ const Popular = styled.h4`
 const Arrow = styled.img`
 `
 const Para = styled.p`
+    font-size: 18px;
+    font-weight: 700;
     text-align: center;
     color: #f5f5f5;
+    padding-top: 18px;
+    padding-bottom: 25px;
     @media screen and (max-width: 700px) {
       font-size: 0.8rem;
   }

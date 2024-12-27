@@ -11,7 +11,7 @@ import img5 from "../assets/images/puma.jpg"
 export default function Brand() {
   return (
     <div>
-        <BrandSection>
+        <BrandWrapper>
             <BrandBox>
                 <TextBox>Top Brands Deal</TextBox>
                 <Para>Up To <Span>60%</Span> off on brands</Para>
@@ -23,13 +23,13 @@ export default function Brand() {
                     <LogoDiv><Logo src={img5} alt="no-image" /></LogoDiv>
                 </LogoBox>
             </BrandBox>
-        </BrandSection>
+        </BrandWrapper>
     </div>
   )
 }
 
 
-const BrandSection = styled.div`
+const BrandWrapper = styled.div`
   margin: 50px;
   position: relative;
   max-width: 1350px;
@@ -42,11 +42,13 @@ const BrandSection = styled.div`
   }
 `
 const BrandBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
     background-color: #3C4242;
     border-radius: 10px;
-    text-align: center;
-    justify-items: center;
-    padding: 35px;
+    padding: 35px 25px 50px 25px;
     margin: 10px;
     @media screen and (max-width: 1080px) {
       padding: 35px 10px;
@@ -56,8 +58,10 @@ const BrandBox = styled.div`
     }
 `
 const TextBox = styled.h1`
-    font-weight:bolder;
+    font-size: 50px;
+    font-weight:800;
     color: #fff;
+    margin: 0px;
     @media screen and (max-width: 700px) {
       font-size: xx-large;
     }
@@ -66,6 +70,7 @@ const TextBox = styled.h1`
     }
 `
 const Para = styled.p`
+    font-size: 22px;
     font-weight: 400;
     color: #fff;
     @media screen and (max-width: 700px) {
@@ -81,7 +86,8 @@ const Span = styled.span`
 `
 const LogoBox = styled.div`
     display: flex;
-    gap: 15px;
+    justify-content: space-between;
+    gap: 50px;
     padding: 35px 5px 5px 5px;
     @media screen and (max-width: 1080px) {
       padding-top: 14px;
